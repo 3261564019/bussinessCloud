@@ -1,0 +1,287 @@
+<template>
+  <div class="root">
+    <div class="title">
+      <div class="title">
+        企业创新人才备案登记表
+      </div>
+    </div>
+
+    <div class="item mc">
+      <span>
+         在本企业的<br/>
+        工作岗位
+      </span>
+      <input type="text">
+    </div>
+
+    <div class="radiocontent">
+      <div class="title">本企业可以接触到的商业秘密类型：</div>
+      <div class="radio">
+        <radio-group v-model="isgovermnent">
+          <radio name="1" checked-color="#ee0a24">经营信息</radio>
+          <radio name="2" checked-color="#ee0a24">技术信息</radio>
+        </radio-group>
+      </div>
+    </div>
+
+    <div class="radiocontent">
+      <div class="title">是否签订了保密协议和竞业禁止协议：</div>
+      <div class="radio">
+        <radio-group v-model="secret_type">
+          <radio name="1" checked-color="#ee0a24">是</radio>
+          <radio name="2" checked-color="#ee0a24">否</radio>
+        </radio-group>
+      </div>
+    </div>
+
+
+    <div class="item mc">
+      <span>
+      在本企业的 <br/>
+      劳动合同起 <br/>
+      止时间
+      </span>
+      <input type="text">
+    </div>
+
+    <div class="item bz">
+      <span>
+      备注：
+      </span>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+
+<!--    填表人-->
+    <div class="section">
+      <div class="sitem">
+        <span>
+          填表人：
+        </span>
+        <p>
+          点击电子签名
+        </p>
+      </div>
+      <div class="sitem" >
+        <span>
+          法定代<br/>
+          表人审核：
+        </span>
+        <p>
+            点击电子签名
+        </p>
+      </div>
+    </div>
+<!--    申请时间-->
+    <div class="sqsj">
+      申请填写时间：自动生成
+    </div>
+
+    <div class="pagenumber">
+      3 / 3
+    </div>
+
+    <div class="bottom">
+      说明：表格填好后下载打印，签字盖章后扫描件或照片 <br/>
+      上传，完成申请提交。
+    </div>
+
+
+    <img id="prve" src="@/assets/home/group18.png" alt="" @click="$router.back()">
+
+  </div>
+</template>
+
+<script>
+import {RadioGroup, Radio } from 'vant';
+export default {
+name: "index1",
+  data:()=>{
+    return {
+      check_arr:[true,false,true,false],
+      isgovermnent:'1',
+      secret_type:'2'
+    }
+  },
+  components:{
+    RadioGroup,
+    Radio
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+  .root {
+    padding-bottom: 1px;
+    background-color: #FFFFFF;
+    .title {
+      font-family: '微软雅黑';
+      font-style: normal;
+      font-weight: 550;
+      font-size: 18px;
+      letter-spacing: -0.24px;
+      color: #222222;
+      text-align center;
+      line-height 80px;
+
+    }
+    .item{
+      height 90px;
+      width: 90%;
+      margin: 0px auto;
+      font-size :12px;
+      border-bottom: 1px solid rgba(191, 191, 191, 0.5);
+      display flex;
+      justify-content space-between;
+
+      span{
+        width 25%;
+        font-family: '微软雅黑';
+        font-style: normal;
+        font-weight: 520;
+        font-size: 14px;
+        line-height: 50px;
+
+        /* identical to box height */
+        letter-spacing: -0.24px;
+
+        color: #404956;
+      }
+      input{
+        width 75%;
+        outline none;
+        border none;
+        background-color :#FFFFFF;
+      }
+
+    }
+    .mc{
+      span{
+        display:flex;
+        line-height:20px;
+        align-items center;
+      }
+    }
+    .bz{
+      span{
+
+        line-height:30px;
+      }
+      textarea {
+        width:75%;
+        border :none;
+        outline :none;
+        resize:none;
+      }
+    }
+    .pagenumber{
+      width 40px;
+      margin: 50px auto;
+      overflow hidden;
+      color : #A7A7A7;
+    }
+    .bottom{
+      width:90%;
+      font-family: Alibaba PuHuiTi;
+      font-style: normal;
+      margin:0 auto;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: -0.24px;
+      color: #999999;
+      margin-bottom:50px;
+    }
+    .radiocontent{
+      width:90%;
+      margin:0 auto;
+      padding-bottom 20px;
+      border-bottom :1px solid rgba(191,191,191,0.5);
+      .title{
+        font-family: '微软雅黑';
+        font-style: normal;
+        font-weight: 520;
+        font-size: 14px;
+        line-height: 50px;
+
+        /* identical to box height */
+        letter-spacing: -0.24px;
+
+        color: #404956;
+        text-align left;
+
+      }
+      .radio{
+        display flex;
+        justify-content:space-around;
+        margin:10px 0;
+        .van-radio-group{
+          width:100%;
+          display flex;
+          justify-content space-around;
+          .van-radio__label{
+            font-size :13px;
+          }
+        }
+      }
+    }
+
+    #next{
+      position fixed;
+      top:48%;
+      right:10px;
+      width:7vw;
+    }
+    #prve{
+      position fixed;
+      top:48%;
+      left   10px;
+      width 7vw;
+    }
+    .section{
+      width:90%;
+      margin:10px auto;
+      display flex
+      justify-content space-between;
+      .sitem{
+        width:50%;
+        display flex;
+        justify-content center;
+        align-items center;
+        p{
+          width :53%;
+          color: #9C9C9C;
+          height:34px;
+          border:1px solid #222222;
+          border-radius:2px;
+          line-height:34px;
+          font-size :14px;
+          text-align center;
+        }
+
+        span{
+          font-size :14px;
+          ont-family: Alibaba PuHuiTi;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 22px;
+          letter-spacing: -0.24px;
+          color: #404956;
+        }
+      }
+    }
+    .sqsj{
+      width 90%;
+      margin 20px auto;
+      font-family: '微软雅黑';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: -0.24px;
+      color: #404956;
+
+
+    }
+
+}
+</style>
