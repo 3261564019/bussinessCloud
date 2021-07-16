@@ -28,7 +28,7 @@
                     <span>指导申请</span>
                 </div>
                 <div class="piece-title-right" @click="clickMore">
-                    <span>更多</span>
+                    <span>更多test</span>
                     <img src="@/assets/gengduo.png">
                 </div>
             </div>
